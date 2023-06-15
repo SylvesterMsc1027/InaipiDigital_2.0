@@ -1,0 +1,68 @@
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-search:before {
+  content: "\f002";
+}
+
+/** Doc attachment images */
+.attachment_container {
+  position: relative;
+  width: 100%;
+  display: block;
+  width: 200px;
+  height: 150px;
+}
+
+.attachment_Preview_image {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.image_attachment {
+  display: block;
+  width: 200px;
+  height: 150px;
+}
+
+.attachment_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #555454;
+  overflow: hidden;
+  width: 200px;
+  height: 0;
+  transition: .5s ease;
+}
+
+.attachment_container:hover .attachment_overlay {
+  height: 20%;
+}
+
+.attachment_text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.attachment_el_text{
+  font-size: 8px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}

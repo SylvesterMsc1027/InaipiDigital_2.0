@@ -1,0 +1,11 @@
+.bot-chat{
+    padding-top: 15px !important;
+  
+}
+.user-chat a{
+    color: white !important;
+}
+
+.bot-chat a{
+    color: blue !important;
+}

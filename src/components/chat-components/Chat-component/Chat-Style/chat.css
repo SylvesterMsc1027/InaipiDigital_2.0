@@ -1,0 +1,145 @@
+.menucard {
+  width: 279px;
+  height: 54px;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: absolute;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  right: 42.5vw;
+  top: 19vh;
+  padding: 12px;
+  padding-left: 17px;
+}
+
+.menucard button {
+  margin-right: 5px;
+}
+
+.EmojiPickerReact .epr-preview {
+  display: none !important;
+}
+
+.audio-recorder {
+  background: none !important;
+  box-shadow: none !important;
+}
+.recording {
+  position: absolute !important;
+  top: 541px !important;
+  right: 643px !important;
+  border-radius: 14px !important;
+  width: 230px !important;
+  transition: all 0.1s ease-in-out !important;
+  background: white !important;
+}
+
+/* audio {
+  position: absolute;
+  bottom: 13px;
+  left: 420px;
+  width: 180px;
+} */
+
+.audio-file {
+  top: 100px;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+}
+
+.audio-preview {
+  border-radius: 50%;
+  width: 300vw;
+  top: 100px;
+  position: absolute;
+}
+
+.audio-element {
+  height: 40px !important;
+  width: 275px;
+  margin-bottom: 10px;
+}
+
+.deleteiconOnHover:hover {
+  color: red;
+}
+
+.sendiconOnHover:hover {
+  color: rgba(0, 194, 237, 0.861);
+}
+
+.EmojiPickerReact .epr-preview {
+  display: none !important;
+}
+
+.audio-recorder {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.recording {
+  position: absolute !important;
+  top: 538px !important;
+  right: 643px !important;
+  border-radius: 14px !important;
+  width: 230px !important;
+  /* transition: all 0.1s ease-in-out !important; */
+  background: white !important;
+}
+
+/* audio {
+  position: absolute;
+  bottom: 13px;
+  left: 420px;
+  width: 180px;
+} */
+
+.audio-file {
+  top: 100px;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+}
+
+.audio-preview {
+  border-radius: 50%;
+  width: 300vw;
+  top: 100px;
+  position: absolute;
+}
+
+.audio-element {
+  height: 40px !important;
+  width: 279px !important;
+  margin-bottom: -1px !important;
+  margin-left: 14px !important;
+}
+
+.deleteiconOnHover:hover {
+  color: red;
+}
+
+.sendiconOnHover:hover {
+  color: rgba(0, 194, 237, 0.861);
+}
+
+.canned_div{
+    bottom:23.3rem;
+    right: 10px;
+    height:19rem;
+    width:18rem;
+    padding:10px;
+    border-radius:10px;
+    box-shadow: 2px 2px 6px gray;
+}
+
+.preview_audio{
+  position: static !important;
+}
+
+.msg_audio{
+  height: 40px ;
+  width: 180px;
+}
+

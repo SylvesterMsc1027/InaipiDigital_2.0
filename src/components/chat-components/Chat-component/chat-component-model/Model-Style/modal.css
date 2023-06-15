@@ -1,0 +1,19 @@
+.background_color{
+    background-color: #294e9f;
+    color: white;
+}
+
+
+/* chat menu component */
+.transferOkBtn{
+    float: right;   
+}
+
+.transferOkDiv{
+    padding: 10px;
+}
+
+.modal-content {
+    margin-top: 150px;
+}
+

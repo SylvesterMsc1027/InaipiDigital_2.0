@@ -1,0 +1,259 @@
+
+.avaya_logo {
+    height: 15px;
+    float: right;
+    max-width: 164px;
+  }
+  
+  .main-notify-cont {
+    background: #fff;
+    height: 100%;
+    width: 375px;
+    z-index: 9999;
+    position: fixed;
+    right: 0;
+    box-shadow: 0px 0px 18px 1px #aaaaaa;
+  }
+  
+  .neo-icon-close:before,
+  .neo-icon-end:before {
+    content: "\f16e";
+    font-size: 20px;
+  }
+  
+  .neo-icon-close {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    cursor: pointer;
+    /* //   margin: 15px 10px; */
+  }
+  
+  .main-notify-cont .content {
+    padding: 25px 20px;
+  }
+  
+  .main-notify-cont .content1 {
+    padding: 0px 20px;
+  }
+  
+  .main-notify-cont .content .head {
+    font-size: 18px;
+    border-bottom: 1px solid #dfdada;
+    padding: 0 0 10px 0;
+    margin: 0 0 10px 0;
+  }
+  
+  .notify-body {
+    z-index: 9999;
+    text-align: center;
+    margin: 150px 0 0 0;
+    color: #7b7676;
+  }
+  
+  .notify-body span {
+    display: block;
+    margin: 22px 0;
+    font-size: 20px;
+  }
+  
+  .neo-icon-info-outline:before,
+  .neo-icon-info:before {
+    content: "\f1da";
+    font-size: 42px;
+  }
+  
+  .head_agent-details {
+    /* //   font-size: 18px; */
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .user-close {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .sign-out {
+    padding: 8px 130px;
+    text-align: center;
+    position: fixed;
+    bottom: 15px;
+    border: 1px solid red;
+    /* width: 36%; */
+    color: red;
+  }
+  .sign-out-1 {
+    padding: 8px 130px;
+    text-align: center;
+    position: fixed;
+    bottom: 15px;
+    cursor: not-allowed;
+    opacity: 0.3;
+    border: 1px solid red;
+    /* width: 36%; */
+    color: 1px solid red;
+  }
+  
+  .neo-icon-exit-left {
+    position: absolute;
+    /* display: flex; */
+    left: 128px;
+    top: 11px;
+  }
+  
+  .neo-icon-exit-left:before,
+  .neo-icon-exit:before {
+    content: "\f1ad";
+    font-size: 14px;
+  }
+  
+  .signout-text {
+    padding: 0 0 0 18px;
+  }
+  
+  .sign-out:hover {
+    border-color: var(--button-hover-color-alert);
+    color: var(--button-hover-color-alert);
+    cursor: pointer;
+    background-position: 0 100%;
+    transition: background-position 0.4s, border-color 0.4s 0.15s, color 0.4s;
+  }
+  
+  .user-body button {
+    padding: 8px 0;
+    margin: 0 !important;
+    width: 100%;
+    margin-top: 20px !important;
+    font-weight: 500;
+  }
+  .work-start {
+    background-color: #097d23 !important;
+  }
+  
+  .neo-icon-start-work:before,
+  .neo-icon-work-start:before {
+    content: "\f2a6";
+    font-size: 16px;
+    width: 22px;
+    padding: -15px 0 0 0;
+  }
+  
+  .neo-icon-end-work:before,
+  .neo-icon-work-end:before {
+    font-size: 16px;
+    width: 22px;
+    padding: -15px 0 0 0;
+  }
+  
+  .connected {
+    background-color: #dce1e6 !important;
+  }
+  
+  .neo-nav-status {
+    cursor: pointer;
+  }
+  
+  .timer-connected span,
+  .timer-ready span {
+    font-size: 10px;
+  }
+  
+  .notifications-div {
+    border: 1px solid #999292;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+  
+  .notify-close {
+    float: right;
+    color: #999292;
+    top: 81px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .noti-msg span,
+  .noti-username {
+    font-size: 11px;
+  }
+  
+  .noti-username {
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+  
+  .notify-content-data {
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  
+  .notify-message {
+    display: block;
+    width: 26em !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .notify-duration {
+    color: #949494;
+  }
+  
+  .go-not-ready,
+  .go-ready {
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin: 0 !important;
+    width: 100%;
+    margin-top: 10px !important;
+    font-weight: 500;
+    background: #eceaea;
+    font-family:'Noto-Sans' !important
+  }
+  
+  .status {
+    margin: 20px 0;
+  }
+  .status-head,
+  .reason-head {
+    font-size: 16px !important;
+  }
+  .reason-head {
+    margin: 0 0 26px 0;
+  }
+  
+  .neo-icon-do-not-disturb:before,
+  .neo-icon-go-ready:before {
+    font-size: 20px;
+    padding: 0 7px 0 0;
+  }
+  
+  .neo-icon-chevron-right::before {
+    font-size: 20px;
+    float: right;
+    padding: 0 0px 0 0;
+  }
+  
+  .neo-icon-chevron-left::before {
+    font-size: 18px;
+    padding: 0 6px 0px 17px;
+  }
+  
+  .neo-icon-chevron-left {
+    cursor: pointer;
+  }
+  
+  .showStatus {
+    background-color: var(--navbar-pill-ready-color);
+  }
+  .showStatusRed {
+    background-color: var(--navbar-pill-not-ready-color) !important;
+  }
+  

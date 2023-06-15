@@ -1,0 +1,35 @@
+.contact_content {
+    margin-top: 10px;
+    margin-left: 84px;
+    height: 100%;
+    width: 93%;
+  }
+  
+  .contact_card {
+    border-radius: 22px !important;
+    width: 100% !important;
+  }
+  
+  .rel-action {
+    position: absolute;
+    right: 0px;
+    top: 65px;
+    cursor: pointer;
+    outline: none;
+  }
+  .add-btn {
+    outline: none !important;
+  }
+ 
+  
+  .requiredLabel:after {
+    color: red;
+    content: " *";
+  }
+  .address_area{
+    width: 75%;
+  }
+  .scroll{
+    overflow-y: scroll !important;
+  }
+  

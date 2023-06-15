@@ -1,0 +1,378 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.incomecall_main {
+  position: fixed;
+  bottom: 20px;
+  right: 1rem;
+  background: transparent linear-gradient(180deg, #4273b6 0%, #7ccee9 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 15px 15px rgba(121, 88, 88, 0.1607843137);
+  border-radius: 25px;
+  z-index: 99999;
+}
+.incomecall_main .call_names p {
+  color: #7ed0ea;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.incomecall_main .call_names h1 {
+  color: white;
+  font-size: 15px;
+}
+.incomecall_main .call-animation {
+  background: #4273b6;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  animation: call 1.5s ease infinite;
+  color: aliceblue;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0) 0px 1px 3px, rgba(0, 0, 0, 0.14) 0px 1px 2px;
+}
+
+.call-end {
+  width: 50px;
+  height: 50px;
+  background: #dd6062 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  color: white;
+}
+.call-end:hover {
+  background: #eb2f32 0% 0% no-repeat padding-box;
+}
+
+.call-start {
+  width: 50px;
+  height: 50px;
+  background: #40b750 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  color: white;
+}
+.call-start:hover {
+  background: #1bdf36 0% 0% no-repeat padding-box;
+}
+
+@keyframes call {
+  15% {
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.031372549);
+  }
+  25% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.031372549), 0 0 0 15px rgba(255, 255, 255, 0.031372549);
+  }
+  30% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.031372549), 0 0 0 19px rgba(255, 255, 255, 0.031372549);
+  }
+}
+@keyframes calling {
+  15% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.031372549);
+  }
+  25% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.031372549), 0 0 0 18px rgba(255, 255, 255, 0.031372549);
+  }
+  30% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.031372549), 0 0 0 25px rgba(255, 255, 255, 0.031372549);
+  }
+}
+.callattend_main {
+  position: fixed;
+  bottom: 20px;
+  width: 340px;
+  right: 1rem;
+  background: transparent linear-gradient(180deg, #4273b6 0%, #5b9acc 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 15px 15px rgba(121, 88, 88, 0.1607843137);
+  border-radius: 25px;
+  z-index: 99999;
+}
+.callattend_main .call_names p {
+  color: #7ed0ea;
+  font-size: 12px;
+  color: #91daf1;
+  opacity: 1;
+}
+.callattend_main .call_names h1 {
+  color: white;
+  font-size: 15px;
+}
+.callattend_main .call-animation {
+  background: #4273b6;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  animation: calling 1.5s ease infinite;
+  color: aliceblue;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0) 0px 1px 3px, rgba(0, 0, 0, 0.14) 0px 1px 2px;
+}
+
+.call-btn {
+  width: 49px;
+  height: 49px;
+  background: rgba(126, 208, 234, 0.2509803922) 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  color: white;
+}
+.call-btn:hover {
+  background: #457088;
+}
+
+.dialer-main {
+  width: 360px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  background: white;
+  color: #000;
+  transition: all 0.3s;
+  box-shadow: -6px 1px 9px 0 rgba(65, 113, 179, 0.31);
+  text-align: left;
+  text-align: center;
+}
+.dialer-main .filter {
+  width: 100%;
+  height: 100vh;
+}
+.dialer-main .filter p {
+  font-family: "Noto Sans JP", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #4273b6;
+}
+.dialer-main .filter form .form-label {
+  font-size: 14px;
+  color: #242424;
+}
+.dialer-main .filter form .form-control {
+  font-size: 14px;
+}
+.dialer-main .filter form .form-select {
+  font-size: 14px;
+}
+.dialer-main .filter .fillter_form2 {
+  height: 70vh;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  overflow-y: scroll;
+  text-align: left;
+}
+.dialer-main .filter .fillter_form2::-webkit-scrollbar {
+  display: none;
+}
+
+.active-d {
+  right: 0;
+}
+
+.dial-nav {
+  position: fixed;
+  bottom: 0;
+  background: white;
+  padding: 10px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  width: 30%;
+  box-shadow: 4px 4px 11px 3px rgba(0, 0, 0, 0.23);
+}
+.dial-nav .active {
+  color: #3f51b5 !important;
+  background: unset !important;
+}
+.dial-nav .nav-item .nav-link {
+  color: #c2c2c2;
+  font-size: 10px;
+}
+.dial-nav .nav-item .nav-link i {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.dial-nav .nav-item .nav-link:hover {
+  color: #3f51b5;
+}
+
+.nav-width {
+  width: 95px;
+}
+
+.dialer-btn-main {
+  position: absolute;
+  top: -34px;
+  right: 40%;
+  width: 63px;
+  height: 63px;
+  background: #4273b6 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  display: flex;
+  border-radius: 50%;
+  background: #3f51b5;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: unset;
+}
+.dialer-btn-main:hover {
+  background-color: #0e174c;
+}
+
+.dialer-sub {
+  height: 73vh;
+  padding: 20px 20px 42px 20px;
+}
+
+.dial-pad .dial-pad-sub .icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.dial-pad .dial-pad-sub .icons li {
+  width: 74px;
+  height: 70px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  float: left;
+  color: #4273b6;
+  font-size: 29px;
+  font-weight: bold;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  text-shadow: 0px -1px #222;
+  transition: 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dial-pad .dial-pad-sub .icons li:nth-child(3n+1) {
+  margin-left: 0;
+}
+.dial-pad .dial-pad-sub .icons li:active {
+  background: #0266c8;
+  color: #fff;
+  transform: scale(1.2);
+}
+.dial-pad .dial-pad-sub .icons li:hover {
+  cursor: pointer;
+  background: #4273b6;
+  color: white;
+}
+.dial-pad .dial-pad-sub .icons li:hover span {
+  color: white;
+}
+
+.dial-pad-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6f9fa;
+  border-radius: 11px;
+  padding: 15px;
+}
+
+.dialerInput {
+  border: 0;
+  height: 45px;
+  line-height: 45px;
+  font-size: 27px;
+  font-weight: bold;
+  text-indent: 20px;
+  width: 83%;
+  color: #4273b6;
+}
+.dialerInput:focus-visible {
+  border: unset !important;
+}
+.dialerInput:focus {
+  color: #4273b6;
+}
+
+.dial-bck {
+  background: unset;
+  border: 0;
+  font-size: 31px;
+  height: 45px;
+  letter-spacing: 0px;
+  color: #707070;
+}
+.dial-bck:hover {
+  color: #4273b6;
+}
+
+.sub {
+  letter-spacing: 0px;
+  color: #707070;
+  font-size: 14px;
+}
+
+.star {
+  font-size: 58px !important;
+}
+
+.hash {
+  padding-bottom: 24px;
+}
+
+.user-dial {
+  width: 37px;
+  height: 37px;
+  background: transparent url("../images/dialer/Ellipse 26.png") 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dialer-badge {
+  border-radius: 50%;
+  padding: 6px;
+  transform: translate(-88%, -26%);
+  background-color: #10CE4F;
+}
+
+.callicon {
+  position: fixed;
+  bottom: 42px;
+  width: 70px;
+  height: 64px;
+  right: 0;
+  background: #4374b7;
+  box-shadow: 0px 15px 15px rgba(121, 88, 88, 0.16);
+  border-radius: 78% 0 0 78%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.callicon::after {
+  content: "";
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  top: -8px;
+  right: -11px;
+  -webkit-clip-path: polygon(49% 0%, 100% 0, 100% 35%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0% 43%, 32% 23%);
+  clip-path: polygon(49% 0%, 100% 0, 100% 35%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0% 43%, 32% 23%);
+  background: #4374b7;
+}
+.callicon::before {
+  content: "";
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  bottom: -11px;
+  right: -12px;
+  -webkit-clip-path: polygon(49% 0%, 100% 0, 100% 40%, 100% 100%, 60% 100%, 38% 100%, 25% 63%, 0% 42%, 0 0);
+  clip-path: polygon(49% 0%, 100% 0, 100% 40%, 100% 100%, 60% 100%, 38% 100%, 25% 63%, 0% 42%, 0 0);
+  background: #4374b7;
+}/*# sourceMappingURL=dialer.css.map */
