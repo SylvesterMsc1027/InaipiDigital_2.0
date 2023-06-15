@@ -205,6 +205,73 @@ const ChatInput = (props) => {
       }
     }
   };
+  const sendChatButton = (event) => {
+    if (props.data.chat.is_customer_disconnected) {
+      toast.error(
+        "Customer is disconnected you can't send message",
+        toastOptions
+      );
+    } else {
+      if (!preview) {
+        setVoiceRecord(true);
+        setPreview(true);
+        const fileUploaded = recorddata;
+        let formData = new FormData();
+        let fileName = `audio.wav`;
+        let file = new File([fileUploaded], fileName);
+        formData.append("file", file, fileName);
+
+        const url = "https://qacc.inaipi.ae/v1/fileServer/uploadMedia";
+
+        formData.append(
+          "userID",
+          props.data.chat.unique_id
+            ? props.data.chat.unique_id.id
+            : props.data.chat.senderDetails[0]._id
+        );
+        formData.append("clientApp", "InapiWebchat");
+        formData.append("channel", "webchat");
+        formData.append("sessionId", props.data.chat.chat_session_id);
+        formData.append("sentBy", "Agent");
+        const config = {
+          headers: {
+            "content-type": "multipart/form-data",
+            tenantId: "123456",
+          },
+        };
+
+        axios
+          .post(url, formData, config)
+          // setLoading(true)
+          .then((response) => {
+            if (response.data.status) {
+              setLoading(false);
+              let pic_url = response.data.data.signedUrl;
+              let mediaType = response.data.data.mediaType.toUpperCase();
+              props.handleSendMsg(pic_url, "AUDIO", "");
+              setFile("");
+              setFileTypeStore("");
+            }
+          })
+          .catch((error) => {
+            errorHandel(error, "/fileServer/uploadMedia");
+            toast.error(
+              "Sorry,the file you are trying to upload is too big(maximum size is 3072KB)",
+              toastOptions
+            );
+          });
+      }
+      if (msg.length > 0 && msg.length < 1000) {
+        props.handleSendMsg(msg, "TEXT", "");
+        setMsg("");
+      } else if (msg.length > 1000) {
+        toast.error(
+          "You'll need to shorten your message to send it",
+          toastOptions
+        );
+      }
+    }
+  };
 
   const hiddenFileInput = React.useRef(null);
 
@@ -470,7 +537,7 @@ const ChatInput = (props) => {
         <div className="smiley chat-sent">
           <button
             type="button"
-            onClick={sendChat}
+            onClick={sendChatButton}
             className="btn btn-chatsent d-flex justify-content-center align-items-center btn-sm"
           >
             <span className="material-symbols-outlined">send</span>
@@ -490,8 +557,9 @@ const ChatInput = (props) => {
           <div className="smiley btn-sm border-0 ">
             <span
               className="material-symbols-outlined sendiconOnHover mt-1 "
-              onClick={() => {
+              onClick={(e) => {
                 setShowAudioPreview(false);
+                sendChatButton(e)
               }}
             >
               send

@@ -655,17 +655,17 @@ const Message = (props) => {
     }
   }, [arrivalMessage]);
 
-  // useEffect(() => {
-  //   contentRef.current.scrollTop =
-  //     contentRef.current.scrollHeight - contentRef.current.clientHeight;
-  // }, [spaceContent, arrivalMessage, message]);
+  useEffect(() => {
+    contentRef.current.scrollTop =
+      contentRef.current.scrollHeight - contentRef.current.clientHeight;
+  }, [spaceContent, arrivalMessage, message]);
 
   return (
     <div>
       <div className="chat-box p-2">
         <div className="chat-box-body ">
-          <div className="chat-logs ">
-            <div className="messages" id="chat">
+          <div className="chat-logs " >
+            <div className="messages" id="chat" ref={contentRef}>
               <div className="time">Today at {defaultValue}</div>
               {message.map((item) => {
                 if (item.msg_sent_type == "NOTIFICATIONS") {
