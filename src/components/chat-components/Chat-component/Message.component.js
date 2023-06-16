@@ -71,6 +71,7 @@ const Message = (props) => {
   const { spaceContent } = props;
   const [currentUserName, setCurrentUserName] = useState("");
   const [currentUserid, setCurrentUserid] = useState("");
+  const [chatEmail, setChatEmail] = useState("");
   const [message, setMessage] = useState([]);
   const [session_id, setsession_id] = useState("");
   const [sender_id, setsender_id] = useState("");
@@ -200,7 +201,6 @@ const Message = (props) => {
           if (chat.id == msg.from) {
             props.setinternalchatnotify(true);
             setCustomerTyping(false);
-
             setArrivalMessage({
               fromSelf: false,
               session_id: msg.session_id,
@@ -215,7 +215,6 @@ const Message = (props) => {
             });
           }
           console.log("this is inbound");
-
           console.log("chat session id", setActive[0].chat_session_id);
         } else {
           let setActive = props.agentList.filter((lis) => {
@@ -355,6 +354,10 @@ const Message = (props) => {
         }
       }
     });
+    showLastMsg();
+    showLastMsgInternal();
+    setChatEmail(chat.email);
+
   };
   // *SOCKET CONNECTION/////////////////////////////////////////////////////
 
@@ -644,6 +647,184 @@ const Message = (props) => {
       }
     } catch (error) {
       errorhandelApi(error, "/users/getAgents");
+    }
+  };
+
+  const showLastMsg = () => {
+    socket.current.on("last-msg-receive", (msg) => {
+      var contactlist = props.contactList;
+      var newcontactlist = [];
+      var unread_count = 0;
+      var contactList1 = props.contactList1;
+      var newcontactlist1 = [];
+      var i = 0;
+      var find = 0;
+      contactlist.map((client, index) => {
+        if (client.id == msg.from) {
+          find = i;
+          if (client.unreadcount) {
+            unread_count = client.unreadcount + 1;
+          } else {
+            unread_count = 1;
+          }
+
+          client.lastmessage = msg.msg;
+          client.lastmessagetime = moment().format("h:mm A");
+          client.lastmessageUpdatedat = moment();
+          client.unreadcount = unread_count;
+          client.currentChat = client.id == msg.from ? true : false;
+
+          updateLastMes(
+            client.id,
+            msg,
+            moment().format("h:mm A"),
+            unread_count
+          );
+
+          newcontactlist1 = {
+            username: msg.senderName,
+            client_msg: msg.msg,
+            msg_time: moment().format("lll"),
+            from_id: msg.from,
+          };
+          contactList1.push(newcontactlist1);
+        }
+
+        if (
+          (msg.conference && client.id == msg.conference_id) ||
+          (msg.conference && client.id == msg.to)
+        ) {
+          if (client.unreadcount) {
+            unread_count = client.unreadcount + 1;
+          } else {
+            unread_count = 1;
+          }
+
+          client.lastmessage = msg.msg;
+          client.lastmessagetime = moment().format("h:mm A");
+          client.unreadcount = unread_count;
+          client.currentChat = client.id == msg.from ? true : false;
+
+          updateLastMes(
+            client.id,
+            msg,
+            moment().format("h:mm A"),
+            unread_count
+          );
+
+          newcontactlist1 = {
+            username: msg.senderName,
+            client_msg: msg.msg,
+            msg_time: moment().format("lll"),
+            from_id: msg.from,
+          };
+          contactList1.push(newcontactlist1);
+        }
+
+        newcontactlist.push(client);
+        i++;
+      });
+      let newupdatedlist = insertAndShift(newcontactlist, find, 0);
+
+      props.setcontactlist(newupdatedlist);
+      props.setcontactlist1(contactList1);
+    });
+  };
+  const showLastMsgInternal = () => {
+    let count = 1;
+    socket.current.on("last-msg-receive", (msg) => {
+      props.agentList.forEach(function (item, i) {
+        if (msg.chatType == "inbound") {
+          if (item._id === msg.from) {
+            props.agentList.splice(i, 1);
+            props.agentList.unshift(item);
+          }
+        } else {
+          if (item.agent === msg.from) {
+            props.agentList.splice(i, 1);
+            props.agentList.unshift(item);
+          }
+        }
+      });
+
+      props.setrefreshtogglechat(true);
+      console.log("props.agentList", props.agentList);
+
+      count++;
+      var contactlist = props.agentList;
+      var newcontactlist = [];
+      var unread_count = 0;
+      var contactList1 = props.contactList1;
+      var newcontactlist1 = [];
+      props.agentList.map((client, index) => {
+        if (msg.chatType == "inbound") {
+          if (client.id == msg.from) {
+            if (client.unreadcount) {
+              unread_count = client.unreadcount + 1;
+            } else {
+              unread_count = 1;
+            }
+
+            client.lastmessage = msg.msg;
+            client.lastmessagetime = moment().format("h:mm A");
+            client.unreadcount = unread_count;
+            client.currentChat = client.id == msg.from ? true : false;
+
+            updateLastMes(
+              client.id,
+              msg,
+              moment().format("h:mm A"),
+              unread_count
+            );
+          }
+
+          newcontactlist.push(client);
+        } else {
+          if (client.agent == msg.from) {
+            if (client.unreadcount) {
+              unread_count = client.unreadcount + 1;
+            } else {
+              unread_count = 1;
+            }
+
+            client.lastmessage = msg.msg;
+            client.lastmessagetime = moment().format("h:mm A");
+            client.unreadcount = unread_count;
+            client.currentChat = client.id == msg.from ? true : false;
+
+            updateLastMes(
+              client.id,
+              msg,
+              moment().format("h:mm A"),
+              unread_count
+            );
+          }
+
+          newcontactlist.push(client);
+        }
+      });
+      props.setAgentList(newcontactlist);
+    });
+  };
+  const updateLastMes = async (id, msg, date, count) => {
+    const access_token = localStorage.getItem("access_token");
+    try {
+      let data_to_pass = {
+        id: id,
+        lastMsg: msg.msg,
+        time: date,
+        count: count,
+      };
+
+      await axios.post(BaseUrl + "/message/updateLastMessage", data_to_pass, {
+        headers: {
+          tenantId: tenantId,
+          Authorization: "Bearer " + access_token,
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      // errorHandel(error, "/message/updateLastMessage");
     }
   };
 

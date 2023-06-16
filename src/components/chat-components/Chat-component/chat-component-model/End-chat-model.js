@@ -45,6 +45,7 @@ const Endchatmodel = ({ show, close, chatid, chat }) => {
           },
         })
         .then((res) => {
+          localStorage.removeItem('client')
           console.log("chat ended", res);
         })
         .catch((error) => {

@@ -126,10 +126,10 @@ const Contactlist = (props) => {
       getDataOnload();
       getInternalAgents();
       getData();
-      let acceptClient = JSON.parse(localStorage.getItem("client"));
-      if (acceptClient != null) {
-        onclickhandlechangeexternalContact(acceptClient, 0);
-      }
+      // let acceptClient = JSON.parse(localStorage.getItem("client"));
+      // if (acceptClient != null) {
+      //   onclickhandlechangeexternalContact(acceptClient, 0);
+      // }
     }
     if (props.confchatrefresh) {
       clearInterval(intervalId);
@@ -721,7 +721,6 @@ const Contactlist = (props) => {
   };
 
 
-  console.log('agentList',props.agentList)
   return (
     <>
       <div className="col-md-3 border-end mt-3 ">
@@ -867,7 +866,8 @@ const Contactlist = (props) => {
                   );
                 })}
             </div>
-            <div style={{ marginBottom: "15vh" }}>
+
+            {/* <div style={{ marginBottom: "15vh" }}>
               {nonActiveAgents
                 .filter((client) => {
                   if (searchterm == "") {
@@ -890,7 +890,7 @@ const Contactlist = (props) => {
                     />
                   );
                 })}
-            </div>
+            </div> */}
           </>
         )}
       </div>

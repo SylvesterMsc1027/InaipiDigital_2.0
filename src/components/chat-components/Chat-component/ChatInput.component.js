@@ -55,6 +55,7 @@ const ChatInput = (props) => {
   const [showPicker, setShowPicker] = useState(false);
   const [cursorPosition, setcursorPosition] = useState();
   const onEmojiClick = (e) => {
+    setShowPicker(!showPicker)
     const ref = inputRef.current;
     ref.focus();
     const start = msg.substring(0, ref.selectionStart);
@@ -136,8 +137,9 @@ const ChatInput = (props) => {
   const handleShow = () => setShow(true);
 
   const sendChat = (event) => {
-    if (event.key === "Enter") {
-      console.log("props.data.chat.is_customer_disconnected", props.data.chat);
+    if (event.keyCode === 13) {
+      
+      event.preventDefault();
       if (props.data.chat.is_customer_disconnected) {
         toast.error(
           "Customer is disconnected you can't send message",

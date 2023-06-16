@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Badge } from "react-bootstrap";
 
 const InternalAgentList = (props) => {
-  const { val, index, onclickhandlechangeinternalContact, chatid, agentId } =
-    props;
+  const { val, index, onclickhandlechangeinternalContact, chatid, agentId } = props;
+
   return (
     <>
       <div
